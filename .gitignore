@@ -1,0 +1,11 @@
+# Python Environment
+.venv
+
+# Byte-compiled / optimized / DLL files / system files
+__pycache__/
+*.py[cod]
+*$py.class
+.DS_Store
+
+# data
+data

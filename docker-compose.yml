@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres
+    container_name: postgres
+    deploy:
+      restart_policy:
+        condition: on-failure
+    environment:
+      - POSTGRES_USER=dbt
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=snowdepth
+    ports:
+      - 5432:5432
+    networks:
+      - backend
+
+  dbt:
+      build:
+        context: ./dbt
+        dockerfile: Dockerfile
+      container_name: dbt
+      volumes:
+        - ./data:/data
+        - ./dbt:/snowdepth
+      entrypoint: 
+        - /bin/bash
+        - /snowdepth/entrypoint.sh
+      ports: 
+        - 8080:8080
+      networks:
+        - backend
+      depends_on:
+        - postgres
+
+  metabase:
+      image: metabase/metabase
+      container_name: metabase
+      restart: always
+      volumes: 
+        - ./metabase/metabase.db:/metabase.db
+      environment:
+        MB_ENCRYPTION_SECRET_KEY: abcdefghijklmnopqrstuvwxyz
+        MB_DB_FILE: /metabase.db
+      ports:
+        - 3000:3000
+      networks:
+        - backend
+      depends_on:
+        - postgres
+        - dbt
+
+networks:
+  backend:
+    driver: "bridge"
