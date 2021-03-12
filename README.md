@@ -1,3 +1,6 @@
+## Workflow
+This is the diagram which illustrates the systems design and workflow
+![workflow.png](./images/workflow.png)
 ## Setup
 - `cd` to this directory
 - Open a terminal, create a Python virtual environment using:
