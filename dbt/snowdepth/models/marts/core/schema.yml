@@ -1,0 +1,67 @@
+version: 2
+
+models:
+  - name: dim_snowdepth_aux
+    columns:
+      - name: id
+        description: ID of Aux Data
+        tests:
+          - not_null
+          - unique
+      - name: sc_type_of_sites_ecological
+        description: Type of Ecological Site
+        tests:
+          - accepted_values:
+              values: ['snowbed', 'hummock_mire']
+      - name: coordinate_id
+        description: Foreign Key to  Coordinates Table
+        tests:
+          - relationships:
+              to: ref('dim_snowdepth_coordinates')
+              field: id
+          - not_null
+      - name: sn_locality
+        description: Locality (within region)
+      - name: sn_section
+        description: Section (within locality)
+  
+  - name: dim_snowdepth_coordinates
+    columns:
+      - name: sn_site
+        description: Unique Site ID
+        tests:
+          - unique
+          - not_null
+      - name: lon
+        description: Longitude Coordinate
+        tests:
+          - not_null
+      - name: lat
+        description: Latitude Coordinate
+        tests:
+          - not_null
+  
+  - name: fct_snowdepth_data
+    columns:
+      - name: id
+        description: ID of Snowdepth Data
+        tests:
+          - unique
+          - not_null
+      - name: coordinate_id
+        description: Foreign Key to  Coordinates Table
+        tests:
+          - relationships:
+              to: ref('dim_snowdepth_coordinates')
+              field: id
+          - not_null
+      - name: sn_plot
+        description: Plot (Distance of the measurement [m] from the coordinate/recco)
+      - name: t_date
+        description: Sampling date
+      - name: v_observer
+        description: Initials of observer
+      - name: v_depth
+        description: Snow depth [cm]
+      - name: year
+        description: Year of Sampling date

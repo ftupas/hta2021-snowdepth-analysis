@@ -10,3 +10,5 @@ __pycache__/
 # data folders
 data
 raw_data
+dbt_modules
+logs
