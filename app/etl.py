@@ -3,7 +3,6 @@ import glob
 import csv
 import pandas as pd
 import shutil
-import time
 
 CWD = os.getcwd()
 DATA_PATH = os.path.join(CWD, 'raw_data')
@@ -115,7 +114,7 @@ def main():
         pass
     for data_file in data_files:
         data_filename = os.path.basename(data_file)
-        os.system(f'cp {data_file} {os.path.join(OUTPUT_FOLDER, data_filename)}')
+        shutil.copyfile(data_file, os.path.join(OUTPUT_FOLDER, data_filename))
         print(f'--MOVING--  {data_filename} to data')
     
     # Clean folder
