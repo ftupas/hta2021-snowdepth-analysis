@@ -4,8 +4,8 @@ build: requirements.txt
 	python3 -m venv .venv
 	@echo "--INSTALLING-- from requirements.txt"
 	@. .venv/bin/activate
-	@pip3 install --upgrade pip -q
-	@pip3 install -qr requirements.txt
+	@python3 -m pip install --upgrade pip -q
+	@python3 -m install -qr requirements.txt
 
 run:
 	@echo "--RUNNING--  scraper.py"
