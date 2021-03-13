@@ -30,6 +30,7 @@ Download snowdepth zip file and extract to `data` folder with this command
 ```
 Windows
 > python app\scraper.py
+> python app\etl.py
 
 Mac/Linux
 $ make run
