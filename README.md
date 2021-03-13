@@ -8,7 +8,7 @@ This is the diagram which illustrates the systems design and workflow
 
 ```
 Windows
-> python -m venv venv
+> python -m virtualenv .venv
 
 Mac/Linux
 $ make build
@@ -18,7 +18,7 @@ then activate it by executing
 
 ```
 Windows:
-> venv\Scripts\activate.bat
+> .venv\Scripts\activate.bat
 ```
 (For Windows) Install dependencies using:
 ```
