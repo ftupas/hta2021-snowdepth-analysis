@@ -3,6 +3,7 @@ import glob
 import csv
 import pandas as pd
 import shutil
+import time
 
 CWD = os.getcwd()
 DATA_PATH = os.path.join(CWD, 'raw_data')
@@ -64,7 +65,7 @@ def collate_csv(files: list):
     
     filename = '_'.join(os.path.basename(files[0]).split('_')[:-1])
     output = '_'.join(files[0].split('_')[:-1]) + '_data.csv'
-    print(f'--CREATING-- {filename}_.csv')
+    print(f'--CREATING-- {filename}_data.csv')
 
     # Create DataFrames from csv and concatenate
     df_list = [pd.read_csv(file) for file in files]
@@ -105,7 +106,8 @@ def main():
     df = collate_csv(files=dated_files)
 
     # Move files to raw folder
-    data_files = list(filter(lambda x: not is_dated_file(x), csv_files))
+    all_csv_files = get_files(path=DATA_PATH, format='.csv')
+    data_files = list(filter(lambda x: not is_dated_file(x), all_csv_files))
     try:
         os.mkdir(OUTPUT_FOLDER)
 
