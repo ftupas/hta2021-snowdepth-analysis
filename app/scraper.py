@@ -1,6 +1,7 @@
 import requests
 import os
 import zipfile
+import wget
 from bs4 import BeautifulSoup
 
 URL = 'https://data.coat.no'
@@ -53,7 +54,7 @@ class Scraper:
         """
 
         self.print_action('DOWNLOADING',object=url)
-        os.system(f'wget -O {DATASET}.zip {url}')
+        wget.download(f'{url}')
         self.print_action('DOWNLOADED', object=url)
         
 
