@@ -7,5 +7,6 @@ __pycache__/
 *$py.class
 .DS_Store
 
-# data
+# data folders
 data
+raw_data

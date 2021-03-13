@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 URL = 'https://data.coat.no'
 DATASET = 'v_snowdepth_intensive_v1'
 CWD = os.getcwd()
-OUTPUT_PATH = os.path.join(CWD, 'data')
+OUTPUT_PATH = os.path.join(CWD, 'raw_data')
 
 class Scraper:
     """
@@ -73,8 +73,7 @@ class Scraper:
         except Exception as e:
             print(e)
         
-        os.system(f'rm -rf {os.path.join(CWD, file)}')
-
+        os.remove(os.path.join(CWD, file))
         self.print_action(action='UNZIPPED', object=file)
 
     def print_action(self, action: str, object: str):
@@ -82,7 +81,7 @@ class Scraper:
 
 def main():
 
-    # # Get zip download url
+    # Get zip download url
     scraper = Scraper(root_url=URL)
     datasets_url = scraper.navigate(href_elem='dataset')
     snowdepth_url = scraper.navigate(href_elem=DATASET)
