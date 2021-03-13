@@ -1,0 +1,41 @@
+version: 2
+
+sources:
+  - name: snowdepth
+    description: COAT snowdepth database
+    database: snowdepth
+    tables:
+    - name: V_snowdepth_intensive_aux
+      columns:
+        - name: sn_region
+          description: Study region
+          tests:
+            - not_null
+        
+        - name: sn_locality
+          description: Locality (within region)
+          tests:
+            - accepted_values:
+                values: [
+                  'vestre_jakobselv', 
+                  'komagdalen', 
+                  'ifjordfjellet'
+                ]
+                
+    - name: V_snowdepth_intensive_coordinates
+      columns:
+        - name: sn_site
+          description: Unique Site ID
+          tests:
+            - unique
+            - not_null
+
+    - name: V_snowdepth_intensive_data
+      columns:
+        - name: sn_plot
+          description: Plot (Distance of the measurement [m] from the coordinate/recco)
+          tests:
+            - accepted_values:
+                values: [0, 5, 10, -5, -10]
+                severity: warn
+            

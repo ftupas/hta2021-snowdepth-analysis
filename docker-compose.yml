@@ -9,7 +9,7 @@ services:
         condition: on-failure
     environment:
       - POSTGRES_USER=dbt
-      - POSTGRES_PASSWORD=password
+      - POSTGRES_PASSWORD=password1
       - POSTGRES_DB=snowdepth
     ports:
       - 5432:5432
