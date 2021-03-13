@@ -1,16 +1,16 @@
 
 build: requirements.txt
 	@echo "--CREATING--  virtual enviroment .venv"
-	python -m venv .venv
+	python3 -m venv .venv
 	@echo "--INSTALLING-- from requirements.txt"
 	@. .venv/bin/activate
-	@pip install --upgrade pip -q
-	@pip install -qr requirements.txt
+	@pip3 install --upgrade pip -q
+	@pip3 install -qr requirements.txt
 
 run:
 	@echo "--RUNNING--  scraper.py"
 	@. .venv/bin/activate
-	python app/scraper.py && python app/etl.py
+	python3 app/scraper.py && python3 app/etl.py
 
 clean:
 	@echo "--DELETING-- venv and pycache"
