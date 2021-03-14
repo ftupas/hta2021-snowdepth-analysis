@@ -1,3 +1,4 @@
+| [Background](#Background) | [Description](#Description) | [Setup](#Setup) | [Get data](#Get-COAT-data) | [Build Containers](#Build-Docker-containers) | [ETL](#Transform,-model,-and-load-data-to-Postgres-DB-using-dbt) | [Serve to Metabase](#Serve-to-Metabase-dashboard) | [Metabase Dashboard](#Snow-Depth-Monitoring-Dashboard-built-on-Metabase) | [Interactive Map](#Interactive-Map-with-Kepler) |
 ## Background
 
  As part of the [Hack The Artic's](https://hackthearctic.com/) hackathon, the team developed an **end-to-end containerized pipeline and developed a dashboard** that tracks snow depth at varying levels of granualirty: the entire Vanager region, among the 3 localities, and among the 6 sections. It is also interactive and supports features such as hovering, zooming and data drill down.
