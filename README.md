@@ -68,3 +68,12 @@ You may need to login, the credentials are
 email: dbt@metabase.com
 password: password1
 ```
+
+### Snow Depth Monitoring Dashboard built on Metabase
+We built a dashboard tracking the snow depth in the Varanger region in Norway. This is crucial for monitoring the effects of climate change on rising average global temperatures.
+
+The dashboard tracks snow depth at varying levels of granualirty: the entire Vanager region, among the 3 localities, and among the 6 sections.
+!["varanger_snow_depth_dashboard"](images/varanger_snow_depth_dashboard.png)
+
+The dashboard is also interactive and supports features such as hovering and zooming.
+!["varanger_snow_depth_dashboard hover"](images/varanger_snow_depth_hover.png)
