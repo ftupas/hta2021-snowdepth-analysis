@@ -42,3 +42,29 @@ Windows
 Mac/Linux
 $ make run
 ```
+## Build Docker containers
+Now that we have the CSV files in the `data` folder, we can now build our Docker containers using this command:
+```
+docker-compose up
+```
+
+This command will build our `dbt`, `postgres`, and `metabase` containers. This will also run our data loading, transformations, and modeling in the background.
+
+## Transform, model, and load data to Postgres DB using dbt
+During `docker-compose`, dbt runs the following commands
+- `dbt init snowdepth`: Creates the project folder
+- `dbt debug`: Checks the connection with the Postgres database
+- `dbt deps`: Installs the test dependencies
+- `dbt seed`: Loads the CSV files into staging tables in the database in `postgres`
+- `dbt run`: Runs the transformations and loads the data into the database
+- `dbt test`: Tests the models
+- `dbt docs generate`: Generates the documentation of the dbt project
+- `dbt docs serve`: Serves the documentation on a webserver
+
+## Serve to Metabase dashboard
+Now that the data is loaded and transformed in our database, we may now view it in http://localhost:3000.
+You may need to login, the credentials are 
+```
+email: dbt@metabase.com
+password: password1
+```
