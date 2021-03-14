@@ -1,3 +1,11 @@
+## Background
+
+ As part of the [Hack The Artic's](https://hackthearctic.com/) hackathon, the team developed an **end-to-end containerized pipeline and developed a dashboard** that tracks snow depth at varying levels of granualirty: the entire Vanager region, among the 3 localities, and among the 6 sections. It is also interactive and supports features such as hovering, zooming and data drill down.
+
+ Link to our submission [here!](https://app.hackjunction.com/projects/hack-the-arctic/view/604d5c7e8e2b090043be2fbe)
+
+---
+
 ## Workflow
 This is the diagram which illustrates the systems design and workflow
 ![workflow.png](./images/workflow.png)
@@ -35,3 +43,5 @@ Windows
 Mac/Linux
 $ make run
 ```
+
+
